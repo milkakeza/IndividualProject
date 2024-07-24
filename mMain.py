@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+1.This script provides a command-line interface for managing a Grade Book system with options to add students and courses,
+2.register students for courses, calculate rankings, search for grades, and generate student transcripts.
+3.It includes input validation to ensure correct data entry for students and courses, and allows users to save transcripts to files.
+4.The script utilizes a menu-driven approach to facilitate user interaction with the GradeBook class.
+
+"""
 from Grrade_book import GradeBook
 from datetime import datetime
 import re
