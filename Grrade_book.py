@@ -11,8 +11,8 @@ class GradeBook:
         students = []
         with open("data/students.txt", "r") as file:
             for line in file:
-                email, names, id = line.strip().split(",")
-                student = Student(email, names, id)
+                email, names = line.strip().split(",")
+                student = Student(email, names)
                 students.append(student)
         return students
 
@@ -33,11 +33,11 @@ class GradeBook:
                 registered_courses.append((student_email, course_name, float(grade)))
         return registered_courses
 
-    def add_student(self, email, names, id):
-        student = Student(email, names, id)
+    def add_student(self, email, names):
+        student = Student(email, names)
         self.student_list.append(student)
         with open("data/students.txt", "a") as file:
-            file.write(f"{email},{names},{id}\n")
+            file.write(f"{email},{names}\n")
 
     def add_course(self, name, trimester, credits):
         course = Course(name, trimester, credits)

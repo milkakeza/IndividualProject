@@ -1,2 +1,5 @@
 elab,1st,3
 EFAND,1,3
+Ent,1,3
+ent,1,3
+entap,1,3

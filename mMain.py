@@ -67,6 +67,7 @@ def main():
                     print("Enter A Valid Name!\n")
                     continue
                 break
+            grade_book.add_student(email, names)
 
 
         elif choice == '2':
@@ -123,10 +124,10 @@ def main():
                     student_found = False
                     with open("./data/students.txt", "r") as file:
                         for line in file:
-                            email, names, id = line.strip().split(",")
+                            email, names = line.strip().split(",")
                             student_emails.append(email)
                             if student_email == email:
-                                print(f"Student Found: ({names} ID: {id})\n")
+                                print(f"Student Found: ({names})\n")
                                 student_found = True
                                 break
             
@@ -263,10 +264,10 @@ def main():
                     student_found = False
                     with open("./data/students.txt", "r") as file:
                         for line in file:
-                            email, names, id = line.strip().split(",")
+                            email, names = line.strip().split(",")
                             student_emails.append(email)
                             if student_email == email:
-                                print(f"Student Found: ({names} ID: {id})\n")
+                                print(f"Student Found: ({names})\n")
                                 student_found = True
                                 break
 
@@ -307,8 +308,8 @@ def main():
                 print("*" * 53 + "\n")
 
                 while True:
-                    choice = input("Do you want to save the transcript to a file(yes or no)?\n")
-                    if choice.lower() == 'yes':
+                    choice = input("Save (Y/N)?\n")
+                    if choice.lower() == 'y':
                         with open("./data/students.txt", "r") as st:
                             for line in st:
                                 email, names = line.strip().split(",")
@@ -316,14 +317,13 @@ def main():
                                     transcript['names'] = names
                                     break
                         with open(f"{transcript['names']}_transcript.txt", "w") as file:
-                            file.write("="*53 + "\n")
-                            file.write(f"{' '*20}STUDENT TRANSCRIPT{' '*20}\n")
-                            file.write("="*53 + "\n\n")
+                            file.write("\n")
+                            file.write(f"STUDENT TRANSCRIPT:\n")
+                            file.write("\n")
                             file.write(f"Names: {transcript['names']}\n")
                             file.write(f"Email: {transcript['email']}\n")
                             file.write("\n")
-                            file.write("-"*20 + " Courses " + "-"*20 + "\n")
-                            file.write("\n")
+                            file.write(" Courses:\n")
                             file.write(f"{'Name':<{max_name_length}} | {'Grade':<{max_grade_length}}\n")
                             file.write("-" * (max_name_length + max_grade_length + 3))
                             file.write("\n")
@@ -334,10 +334,9 @@ def main():
                                 file.write("\n")
 
                             file.write(f"\nGPA: {transcript['GPA']:.2f}\n")
-                            file.write("=" * 53 + "\n")
                         print("\033[92mTranscript saved successfully!\033[0m")
                         break
-                    elif choice.lower() == 'no':
+                    elif choice.lower() == 'n':
                         break
                     else:
                         print("Invalid choice!\n")

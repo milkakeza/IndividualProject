@@ -1,0 +1,13 @@
+
+STUDENT TRANSCRIPT:
+
+Names: Keza
+Email: isingizwe@alustudent.com
+
+ Courses:
+Name  | Grade
+-------------
+entap | 3.20 
+-------------
+
+GPA: 3.20
