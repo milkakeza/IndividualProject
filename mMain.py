@@ -15,7 +15,7 @@ import os
 
 
 
-def print_fancy_menu():
+def print_menu():
     menu = [
         "1. Add Student",
         "2. Add Course",
@@ -41,7 +41,7 @@ def main():
     
 
     while True:
-        print_fancy_menu()
+        print_menu()
 
         choice = input("\nEnter your choice: ")
 
